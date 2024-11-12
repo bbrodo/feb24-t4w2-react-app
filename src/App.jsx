@@ -43,9 +43,14 @@ function App() {
         setUserJwt(data.jwt);
     };
 
+    useEffect(() => {
+      console.log("JWT changed")
+    }, [userJwt])
+
     return (
           <>
             <div>
+                <h1 data-testid="jwt-header">{userJwt}</h1>
                 <button onClick={postUserSignUp}>sign up user</button>
                 <button onClick={getProtectedRoute}>
                     Visit Protected API Route
